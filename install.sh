@@ -3,10 +3,16 @@ set -e
 REPO_URL="https://github.com/MurilloHMS/arch-setup.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
+read -p "Deseja instalar todos os pacotes e aplicar os dotfiles? [Y/n]" CONFIRM
+if [[ ! "$CONFIRM" =~ ^([Yy]|)$ ]]; then
+    echo "Instalação cancelada pelo usuário"
+    exit 0
+fi
+
 echo "============================"
 echo " Atualizando o sistema..."
 echo "============================"
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 install_aur(){
     PACKAGE="$1"
@@ -52,7 +58,7 @@ echo "============================"
 echo " Baixando dotfiles..."
 echo "============================"
 
-if [-d "$DOTFILES_DIR"]; then
+if [-d "$DOTFILES_DIR" ]; then
     echo "Atualizando dotfiles existentes..."
     git -C "$DOTFILES_DIR" pull
 else
@@ -66,7 +72,7 @@ fi
 cd "$DOTFILES_DIR/dotfiles"
 stow --verbose --target="$HOME" .
 
-if ["$SHELL" != "/bin/zsh"]; then
+if [ "$SHELL" != "/bin/zsh" ]; then
     chsh -s /bin/zsh
 fi
 
