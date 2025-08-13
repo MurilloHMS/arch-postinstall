@@ -26,4 +26,4 @@ Este repositório contém meu script de pós-instalação do Arch Linux com todo
 Após instalar o Arch Linux e ter acesso à internet, execute:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/SEU_USUARIO/arch-setup/main/postinstall.sh)
+bash <(curl -s https://raw.githubusercontent.com/MurilloHMS/arch-postinstall/main/install.sh)
