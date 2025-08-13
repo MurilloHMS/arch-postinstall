@@ -21,7 +21,7 @@ echo "============================"
 echo " Instalando pacotes base..."
 echo "============================"
 
-sudo pacman -S --noconfirm git base-devel wget curl zsh ventoy plank
+sudo pacman -S --noconfirm git base-devel wget curl zsh ventoy plank ttf-dejavu
 
 if ! command -v yay &>/dev/null; then
     echo "============================"
@@ -45,6 +45,8 @@ install_aur "github-cli"
 install_aur "lunarvim-bin"
 install_aur "zsh-theme-powerlevel10k"
 install_aur "zsh-autosuggestions"
+install_aur "nerd-fonts-meslo"
+install_aur "google-chrome-stable"
 
 echo "============================"
 echo " Baixando dotfiles..."
@@ -67,6 +69,12 @@ stow --verbose --target="$HOME" .
 if ["$SHELL" != "/bin/zsh"]; then
     chsh -s /bin/zsh
 fi
+
+echo "============================"
+echo "Instalando fontes MesloLGS para Powerlevel10k..."
+echo "============================"
+# Atualiza cache de fontes
+fc-cache -fv
 
 echo "============================"
 echo "Pós-instalação concluída!"
