@@ -43,7 +43,7 @@ install_aur "eclipse-java"
 install_aur "postman-bin"
 install_aur "github-cli"
 install_aur "lunarvim-bin"
-install_aur "zsh-theme-powerlevel10k-git"
+install_aur "zsh-theme-powerlevel10k"
 install_aur "zsh-autosuggestions"
 
 echo "============================"
