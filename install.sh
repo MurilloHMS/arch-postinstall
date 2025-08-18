@@ -27,7 +27,7 @@ echo "============================"
 echo " Instalando pacotes base..."
 echo "============================"
 
-sudo pacman -S --noconfirm git base-devel wget curl zsh ventoy plank ttf-dejavu
+sudo pacman -S --noconfirm git base-devel wget curl zsh plank ttf-dejavu
 
 if ! command -v yay &>/dev/null; then
     echo "============================"
